@@ -39,12 +39,22 @@ namespace Primeiro
                     Console.Write("Health expenditures: ");
                     double healthIncome = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture );
                     list.Add(new HealthSpending(name, anualIncome, healthIncome));
-               }
-
-                
+               }                
             }
- 
+
             // saida de dados
+           
+           double sum = 0.0;
+           Console.WriteLine();
+           Console.WriteLine("TAXES PAID");
+           foreach (PhysicalPerson person in list)
+           {
+              double tax = person.TaxCollection();
+              Console.WriteLine($"{person.Name}: $ {person.TaxCollection().ToString("F2", CultureInfo.InvariantCulture)}");
+              sum += tax; 
+           }
+ 
+            Console.WriteLine($"TOTAL TAXES: $ {sum.ToString("F2", CultureInfo.InvariantCulture)}");
         }
     }
 }

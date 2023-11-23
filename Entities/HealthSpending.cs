@@ -21,7 +21,7 @@ namespace Primeiro.Entities
            } 
            else  
            { 
-             return  AnnualIncome * 0.25 - AnnualIncome * 0.50 ;
+             return  (AnnualIncome * 0.25) - AnnualIncome * 0.50;
            }
         }
     }
